@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   color: blue !important;
 }
 .navbar {
-  padding-left: 500px;
+  padding-left: 300px;
 }
 .navbar ul {
   margin: 0;
@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color:blue;
   white-space: nowrap;
@@ -543,6 +543,7 @@ section {
   .clients img {
     max-width: 40%;
   }
+
 }
 
 /*--------------------------------------------------------------
@@ -705,7 +706,7 @@ section {
 # Skills
 --------------------------------------------------------------*/
 .skills-content{
-  font-weight: 700 !important;
+  font-weight: 400 !important;
 
 }
 .skills .content h3 {
@@ -1048,10 +1049,10 @@ section {
   margin: 0 2px;
 }
 .team .member .social a:hover {
- /* background: #47b2e4;*/
+ background: #47b2e4;
 }
 .team .member .social a:hover i {
-  /*color: #fff;*/
+  color: #fff;
 }
 .team .member .social a + a {
   margin-left: 8px;
@@ -1832,7 +1833,7 @@ section {
   #hero {
     text-align: center;
     padding-top: 90px;
-    height: 58vh;
+    height: 50vh;
   }
   .input-group {
     width: 90% !important;
@@ -2127,4 +2128,64 @@ h4 {
   font-size: 12px !important;
 
 }
+}
+.Modal1{
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.container1 {
+  font-size: 1.2rem;
+  height:400px;
+  width:650px;
+  font-weight:700;
+  border:7px solid deeppink;
+  color: black;
+  position: fixed;
+  bottom: 10rem;
+  right: 30rem;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #ace8fc 0%, #f3aed0 100%);
+  
+  }
+
+.carol{
+  position: relative;
+}
+
+.container-carol{
+  position: absolute;
+  top:180px;
+  height:260px;
+  width:645px;
+  /*border:2px solid blue;*/
+  left:140px;
+}
+@media (max-width: 768px) {
+  .container-carol {
+    position: absolute;
+    top: 130px;
+    height: 260px;
+    width: 350px;
+    /* border: 2px solid blue; */
+    left: 25px;
+}
+
+}
+.cr-btn{
+  background-color: deeppink !important;
+  color:white;
+}
+.section-signup{
+  min-height: 400px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 150px;
 }

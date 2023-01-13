@@ -1,18 +1,23 @@
 import React from 'react'
-import Theader from './Theader'
+
+import { NavLink } from 'react-router-dom'
 //import Header1 from './Header1'
 import Counter from './Counter'
 import Header2 from './Header2'
 import Client from './Client'
-
+import HeaderCrosel from './HeaderCrosel'
 
 const Home = () => {
-  return (
-  <>
   
+  return (
+    
+  <>
+    <HeaderCrosel/>
     <Header2/>{/*Header Component call here*/}
-    <Theader/>{/*Banner section component call here*/}
+    
     <Counter/>{/*Counter component call here*/}
+   
+    
     {/*home-lower section code here*/ }
       <section id="skills" class="skills mt-md-3 mb-md-5">
         <div class="container-fluid" data-aos="fade-up">
@@ -54,7 +59,7 @@ const Home = () => {
           <div class="row">
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon-box">
-                <div class="icon"><img src="assets/img/icons/bag.png" height="90px"></img></div>
+                <div class="icon"><img src="assets/img/icons/bag.png" height="90px" alt=""></img></div>
                 <h4><a href="/">Generate Invoice And Report</a></h4>
                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
               </div>
@@ -62,15 +67,15 @@ const Home = () => {
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box">
-                <div class="icon"><img src="assets/img/icons/bill.png" height="90px"></img></div>
-                <h4><a href="">Manage Inventory</a></h4>
+                <div class="icon"><img src="assets/img/icons/bill.png" height="90px" alt=""></img></div>
+                <h4><a href="/">Manage Inventory</a></h4>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
               </div>
             </div>
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
               <div class="icon-box">
-                <div class="icon"><img src ="assets/img/icons/budget.png" height="90px"></img></div>
+                <div class="icon"><img src ="assets/img/icons/budget.png" height="90px" alt="/"></img></div>
                 <h4><a href="/">Accounting Made Easy</a></h4>
                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
               </div>
@@ -78,7 +83,7 @@ const Home = () => {
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
               <div class="icon-box">
-                <div class="icon"><img src ="assets/img/icons/debit-card.png" height="90px"></img></div>
+                <div class="icon"><img src ="assets/img/icons/debit-card.png" height="90px" alt=""></img></div>
                 <h4><a href="/">Payment Faster</a></h4>
                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
               </div>
@@ -89,31 +94,31 @@ const Home = () => {
           <div class="row mt-4">
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon-box">
-                <div class="icon"><img src= "assets/img/icons/invoice.png" height="90px"></img></div>
-                <h4><a href="">Analyse Bussines Report</a></h4>
+                <div class="icon"><img src= "assets/img/icons/invoice.png" height="90px" alt=""></img></div>
+                <h4><a href="/">Analyse Bussines Report</a></h4>
                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
               </div>
             </div>
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box">
-                <div class="icon"><img src="assets/img/icons/money.png" height="90px"></img></div>
-                <h4><a href="">Sed ut perspici</a></h4>
+                <div class="icon"><img src="assets/img/icons/money.png" height="90px" alt=""></img></div>
+                <h4><a href="/">Sed ut perspici</a></h4>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
               </div>
             </div>
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
               <div class="icon-box">
-                <div class="icon"><img src="assets/img/icons/pay.png" height="90px"></img></div>
-                <h4><a href="">Delivery Challan</a></h4>
+                <div class="icon"><img src="assets/img/icons/pay.png" height="90px" alt=""></img></div>
+                <h4><a href="/">Delivery Challan</a></h4>
                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
               </div>
             </div>
 
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
               <div class="icon-box">
-                <div class="icon"><img src="assets/img/icons/taxes.png" height="90px"></img></div>
+                <div class="icon"><img src="assets/img/icons/taxes.png" height="90px" alt="/"></img></div>
                 <h4><a href="/">Nemo Enim</a></h4>
                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
               </div>
@@ -172,7 +177,7 @@ const Home = () => {
                         </div>
                                       
                         <div class="generic_price_btn clearfix">
-                          <a class="" href="">View Details</a>
+                          <a class="" href="/">View Details</a>
                         </div>
 
                       </div>
@@ -213,7 +218,7 @@ const Home = () => {
                         </div>
                         
                         <div class="generic_price_btn clearfix">
-                            <a class="" href="">View Details</a>
+                            <a class="" href="/">View Details</a>
                         </div>
 
                       </div>
@@ -252,7 +257,7 @@ const Home = () => {
                         </div>
                     
                         <div class="generic_price_btn clearfix">
-                          <a class="" href="">View Details</a>
+                          <a class="" href="/">View Details</a>
                         </div>
                                       
                       </div>
@@ -292,7 +297,7 @@ const Home = () => {
                         </div>
                             
                         <div class="generic_price_btn clearfix">
-                            <a class="" href="">View Details</a>
+                            <a class="" href="/">View Details</a>
                         </div>
                     
                       </div>

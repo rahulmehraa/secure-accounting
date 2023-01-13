@@ -56,8 +56,8 @@ const Contact = () => {
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="name">Subject</label>
-                      <input type="text" class="form-control" name="subject" id="subject" required/>
+                      <label for="name">Phone</label>
+                      <input type="number" class="form-control" name="phone" id="phone" required/>
                     </div>
                     <div class="form-group">
                       <label for="name">Message</label>

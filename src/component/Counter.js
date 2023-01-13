@@ -13,10 +13,10 @@ const Counter = () => {
       const updateCount = () => {
         const target = parseInt(+counter.getAttribute("data-target"));
         const count = parseInt(+counter.innerText);
-        console.log(`This is the initial count : ${count}`)
-    
+
+
         const increment = Math.trunc(target / speed);
-        console.log(increment);
+
 
         if (count < target) {
           counter.innerText = count + increment;
