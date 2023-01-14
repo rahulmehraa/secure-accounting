@@ -1,8 +1,84 @@
-import React from 'react'
-//import Header1 from './Header1'
-import Header2 from './Header2'
+import React, { useEffect, useState } from 'react'
+import Header2 from './Header2';
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  
+  const[formErrors , setFormErrors] = useState({});
+  const[isSubmit , setIsSubmit] = useState(false);
+  const[toSend, setToSend] = useState({
+    from_name : '',
+    reply_to : '',
+    reply_to_phone : '',
+    your_message :''
+
+  });
+
+  const handleChange = (e) => {
+    setToSend({...toSend , [e.target.name] : e.target.value})
+  }
+
+  const onSubmit = (e) =>{
+    e.preventDefault();
+    setFormErrors(validate(toSend));
+    setIsSubmit(true);
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+      emailjs.sendForm('service_e0q0xua', 'template_mihfelu', e.target, 'fQSwbm1iuqLKREy1G')
+      .then((response) => {
+        console.log("Success")
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+   
+  };
+
+  useEffect(() =>{
+    console.log(formErrors);
+    if(Object.keys(formErrors).length === 0 && isSubmit)
+    {
+      console.log(toSend);
+    }
+  },[formErrors]);
+
+  const validate = (vlaues) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!vlaues.from_name) {
+      errors.from_name = "Name is required!";
+    }
+    else if (vlaues.from_name.length < 3) {
+      errors.from_name = "Enter a valid name!"
+    }
+    else if (vlaues.from_name.length > 20) {
+      errors.from_name = "Enter a valid name!"
+    }
+    if (!vlaues.reply_to) {
+      errors.reply_to = "Email address is required!"
+    }
+    else if (!regex.test(vlaues.reply_to)) {
+      errors.reply_to = "This is not a valid email format!";
+    }
+
+    if (!vlaues.reply_to_phone) {
+      errors.reply_to_phone = "Phone number is required!"
+    }
+    else if (vlaues.reply_to_phone.length < 10) {
+      errors.reply_to_phone = "Enter a valid phone number!"
+    }
+    else if (vlaues.reply_to_phone.length > 15) {
+      errors.from_name = "Enter a valid phone number!"
+    }
+    if(!vlaues.your_message){
+      errors.your_message = "Please leave a message!"
+    }
+    else if(vlaues.your_message.length < 5){
+      errors.your_message = "Message length should be greater than 5 charecters!!"
+    }
+    return errors;
+  };
+
   return (
     <>
       <Header2/>
@@ -44,30 +120,36 @@ const Contact = () => {
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                  <form action="https://formspree.io/f/mjvzoayb" method="post" role="form" class="php-email-form">
+               
+                  <form onSubmit={onSubmit} role="form" class="php-email-form">
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label for="name">Your Name</label>
-                        <input type="text" name="name" class="form-control" id="name" required/>
+                        <input type="text" class="form-control" id="name" name="from_name" value={toSend.from_name} onChange={handleChange}/>
                       </div>
+                      <p style={{ color: "red" }}>{formErrors.from_name}</p>
+
                       <div class="form-group col-md-6">
                         <label for="name">Your Email</label>
-                        <input type="email" class="form-control" name="email" id="email" required/>
+                        <input type="email" class="form-control" id="email" name="reply_to" value={toSend.reply_to} onChange={handleChange}/>
                       </div>
+                      <p style={{ color: "red" }}>{formErrors.reply_to}</p>
                     </div>
                     <div class="form-group">
                       <label for="name">Phone</label>
-                      <input type="number" class="form-control" name="phone" id="phone" required/>
+                      <input type="number" class="form-control" id="phone" name="reply_to_phone" value={toSend.reply_to_phone} onChange={handleChange}/>
                     </div>
+                    <p style={{ color: "red" }}>{formErrors.reply_to_phone}</p>
                     <div class="form-group">
                       <label for="name">Message</label>
-                      <textarea class="form-control" name="message" rows="10" required></textarea>
+                      <textarea class="form-control" rows="10" name="your_message" value={toSend.your_message} onChange={handleChange}></textarea>
                     </div>
                     <div class="my-3">
                       <div class="loading">Loading</div>
                       <div class="error-message"></div>
                       <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
+                    <p style={{ color: "red" }}>{formErrors.your_message}</p>
                     <div class="text-center"><button type="submit">Send Message</button></div>
                   </form>
                 </div>

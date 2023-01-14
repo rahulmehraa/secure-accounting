@@ -4,31 +4,73 @@ import styled, { keyframes } from "styled-components";
 import { isVisible } from '@testing-library/user-event/dist/utils';
 import emailjs, { sendForm } from 'emailjs-com';
 const Modal = () => {
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  let count = true;
-
   const [toSend, setToSend] = useState({
     from_name: '',
     reply_to: '',
-    reply_to_phone:''
+    reply_to_phone: ''
   });
 
-  const onSubmit = (e) =>{
+  let count = true;
+
+  const onSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_e0q0xua','template_25aquoj',e.target,'fQSwbm1iuqLKREy1G')
-    .then((response) =>{
-      console.log("Success")
-    })
-    .catch(err =>{
-      console.log(err);
-    })
+    setFormErrors(validate(toSend));
+    setIsSubmit(true);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      emailjs.sendForm('service_e0q0xua', 'template_25aquoj', e.target, 'fQSwbm1iuqLKREy1G')
+      .then((response) => {
+        console.log("Success")
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
+    
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(toSend);
+    }
+  }, [formErrors]);
+
+  const validate = (vlaues) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!vlaues.from_name) {
+      errors.from_name = "Name is required!";
+    }
+    else if (vlaues.from_name.length < 3) {
+      errors.from_name = "Enter a valid name!"
+    }
+    else if (vlaues.from_name.length > 20) {
+      errors.from_name = "Enter a valid name!"
+    }
+    if (!vlaues.reply_to) {
+      errors.reply_to = "Email address is required!"
+    }
+    else if (!regex.test(vlaues.reply_to)) {
+      errors.reply_to = "This is not a valid email format!";
+    }
+
+    if (!vlaues.reply_to_phone) {
+      errors.reply_to_phone = "Phone number is required!"
+    }
+    else if (vlaues.reply_to_phone.length < 10) {
+      errors.reply_to_phone = "Enter a valid phone number!"
+    }
+    else if (vlaues.reply_to_phone.length > 15) {
+      errors.from_name = "Enter a valid phone number!"
+    }
+    return errors;
   };
 
-  const handleChange = (e) =>{
-    setToSend({...toSend, [e.target.name]:e.target.value})
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value })
   }
-
-
 
   const setOpenModal = () => {
     setIsVisible(false);
@@ -40,28 +82,34 @@ const Modal = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
 
-    if(count){
-    if (winScroll > heightToHidden) {
-      count = false ;
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
+    if (count) {
+      if (winScroll > heightToHidden) {
+        count = false;
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     }
-  }
   };
 
 
   useEffect(() => {
     window.addEventListener('scroll', ListenToScroll);
     return () => window.removeEventListener("scroll", ListenToScroll);
-  },[])
+  }, [])
 
   return (
     <Wraper1>
       {isVisible && (
         <>
-
           <div className='container1 '>
+            {Object.keys(formErrors).length === 0 && isSubmit ? (
+              <div className="ui message success">Message sent successfully !!</div>
+            ) : (
+              <div className="ui message success"></div>
+            )
+            }
+
             <h3 className=' text-center mb-0 mt-2'>Get Free Live Demo</h3>
             <div className='row'>
 
@@ -69,21 +117,24 @@ const Modal = () => {
                 <img src="assets/img/modal-img.webp" height="300px" alt="/" />
               </div>
               <div className='col-md-6'>
-                <form className='p-2' onSubmit = {onSubmit}>
+                <form className='p-2' onSubmit={onSubmit}>
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Name here" name="from_name" value ={toSend.from_name} onChange={handleChange}/>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Name here" name="from_name" value={toSend.from_name} onChange={handleChange} />
                   </div>
+                  <p style={{ color: "red" }}>{formErrors.from_name}</p>
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="reply_to" value ={toSend.reply_to} onChange={handleChange}/>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="reply_to" value={toSend.reply_to} onChange={handleChange} />
                   </div>
+                  <p style={{ color: "red" }}>{formErrors.reply_to}</p>
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Your Phone Number" name="reply_to_phone" value={toSend.reply_to_phone} onChange={handleChange}/>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Your Phone Number" name="reply_to_phone" value={toSend.reply_to_phone} onChange={handleChange} />
                   </div>
+                  <p style={{ color: "red" }}>{formErrors.reply_to_phone}</p>
 
-                  <button type="submit" className='btn btn-secondary rounded ms-3 mb-4 ms-md-1 p-md-2 ps-md-3 pe-md-3' style={{backgroundColor:"#ee3287"}}>Send Message</button>
+                  <button type="submit" className='btn btn-secondary rounded ms-3 mb-4 ms-md-1 p-md-2 ps-md-3 pe-md-3' style={{ backgroundColor: "#ee3287" }}>Send Message</button>
                   <button type="button" class="btn btn-primary ms-3 mb-4" data-dismiss="modal" id="cancelBtn" onClick={() => {
                     setOpenModal()
                   }}>Close</button>
