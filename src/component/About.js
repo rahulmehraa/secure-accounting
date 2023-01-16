@@ -6,7 +6,7 @@ const About = () => {
    
     <>
       <Header2/>{/*header component call here*/ }
-        <section id="about" class="about mt-5 mb-5">
+        <section id="about" class="about mt-5 mb-5 pt-5 pt-md-none">
           <div class="container" data-aos="fade-up">
             <div class="section-title">
               <h2>About Us</h2>

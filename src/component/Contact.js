@@ -25,7 +25,7 @@ const Contact = () => {
     if(Object.keys(formErrors).length === 0 && isSubmit){
       emailjs.sendForm('service_e0q0xua', 'template_mihfelu', e.target, 'fQSwbm1iuqLKREy1G')
       .then((response) => {
-        console.log("Success")
+          alert('success');
       })
       .catch(err => {
         console.log(err);
@@ -68,8 +68,8 @@ const Contact = () => {
       errors.reply_to_phone = "Enter a valid phone number!"
     }
     else if (vlaues.reply_to_phone.length > 15) {
-      errors.from_name = "Enter a valid phone number!"
-    }
+      errors.reply_to_phone = "Enter a valid phone number!"
+    } 
     if(!vlaues.your_message){
       errors.your_message = "Please leave a message!"
     }
@@ -126,20 +126,23 @@ const Contact = () => {
                       <div class="form-group col-md-6">
                         <label for="name">Your Name</label>
                         <input type="text" class="form-control" id="name" name="from_name" value={toSend.from_name} onChange={handleChange}/>
+                        <p style={{ color: "red" }}>{formErrors.from_name}</p>
                       </div>
-                      <p style={{ color: "red" }}>{formErrors.from_name}</p>
+                    
 
                       <div class="form-group col-md-6">
                         <label for="name">Your Email</label>
                         <input type="email" class="form-control" id="email" name="reply_to" value={toSend.reply_to} onChange={handleChange}/>
+                        <p style={{ color: "red" }}>{formErrors.reply_to}</p>
                       </div>
-                      <p style={{ color: "red" }}>{formErrors.reply_to}</p>
+                     
                     </div>
                     <div class="form-group">
                       <label for="name">Phone</label>
                       <input type="number" class="form-control" id="phone" name="reply_to_phone" value={toSend.reply_to_phone} onChange={handleChange}/>
+                      <p style={{ color: "red" }}>{formErrors.reply_to_phone}</p>
                     </div>
-                    <p style={{ color: "red" }}>{formErrors.reply_to_phone}</p>
+                    
                     <div class="form-group">
                       <label for="name">Message</label>
                       <textarea class="form-control" rows="10" name="your_message" value={toSend.your_message} onChange={handleChange}></textarea>

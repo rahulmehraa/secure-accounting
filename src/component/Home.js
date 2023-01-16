@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Faq from './Faq'
 import { NavLink } from 'react-router-dom'
 //import Header1 from './Header1'
 import Counter from './Counter'
@@ -23,22 +23,22 @@ const Home = () => {
         <div class="container-fluid" data-aos="fade-up">
           <div class="row">
 
-            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-              <img src="assets/img/slider/sec2.png" class="img-fluid " alt=""/>
+            <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="assets/img/about.webp" class="img-fluid " alt="" width="580px"/>
             </div>
 
             <div class="col-lg-6 pt-4 mt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-              <h4 class ="text-primary">SECURE ACCOUNTING IS ONE STOP DESTINATION FOR SOLUTION RELATED TO ACCOUNTING AND INVENTORY MANAGEMENT IN MSMEs.</h4>
-              <div class="skills-content mt-2"><i class="bi bi-check2-circle i-class"></i>
-                WE AT SECURE ACCOUNTING BUILD AND DEVELOP SOLUTIONS FOR THE RETAILERS, WHOLESALE DISTRIBUTORS AND SERVICE PROVIDERS BESIDES GUARANTEEING BUSINESS REPORTS FOR EVERYONE.
+              <h3 class ="text-primary text-center">Welcome to Secure Accounting</h3><hr/>
+              <div class="skills-content mt-2"><i class="bi bi-check2-circle i-class "></i>
+               Secure Accounting is a product of KIMLIT. We are based in Patna ,Bihar.
               </div>
-              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class"></i>
+              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class "></i>
                 With the use of secure accouting software which we intend to offer you can create professional and elegant looking invoices, quotationspurchase orders, manage your inventory and create ledgers as well.
               </div>
-              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class"></i>
+              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class "></i>
                 As more and more businesses are embracing the digital ledgers than before, why wait ?? Come join the digital revolution of accouting, we empower merchants and business houses simplify their needs and requirements !!
               </div>
-              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class"></i>
+              <div class="skills-content mt-3"><i class="bi bi-check2-circle i-class "></i>
                 We hope you enjoy our product and its services as much as we enjoy offering them to you. If you have any queries, please don’t hesitate to contact us at support@secureaccounting.in
               </div>
             
@@ -401,6 +401,7 @@ const Home = () => {
 
         </div>
       </section>
+      <Faq/>
     {/*client section code here*/ }
       <section id="team" class="team">
         <div class="container" data-aos="fade-up">

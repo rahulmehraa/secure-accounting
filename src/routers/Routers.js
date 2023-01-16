@@ -15,7 +15,7 @@ const Routers = () => {
         { path: "/about", element: <About /> },
         { path: "/feature", element: <Feature /> },
         { path: "/pricing", element: <Pricing /> },
-        { path: "/signup", element: <SignUp/> },
+        { path: "/signup", element: <SignUp /> },
         { path: "/gst-billing", element: <Details name1="GST" title1="Billing" img1="assets/img/hero-img.png" img2="assets/img/slider/sec2.png" /> },
         { path: "/inventory-details", element: <Details name2="OUR" title2="Inventory" img3="assets/img/icons/debit-card.png" /> },
         { path: "/purchase-details", element: <Details name3="TRACK" title3="Purchase" img4="assets/img/slider/sec2.png" /> }

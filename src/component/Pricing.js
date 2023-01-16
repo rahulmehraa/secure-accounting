@@ -46,7 +46,7 @@ const Pricing = () => {
                                         </div>
                                     
                                         <div class="generic_price_btn clearfix">
-                                            <a class="" href="">View Details</a>
+                                            <a class="" href="/">View Details</a>
                                         </div>
                                     
                                 </div>
@@ -87,7 +87,7 @@ const Pricing = () => {
                                     </div>
                                     
                                     <div class="generic_price_btn clearfix">
-                                        <a class="" href="">View Details</a>
+                                        <a class="" href="/">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@ const Pricing = () => {
                                     </div>
                                 
                                     <div class="generic_price_btn clearfix">
-                                        <a class="" href="">View Details</a>
+                                        <a class="" href="/">View Details</a>
                                     </div>
                                 </div>
                                 
@@ -165,7 +165,7 @@ const Pricing = () => {
                                     </div>
                                     
                                     <div class="generic_price_btn clearfix">
-                                        <a class="" href="">View Details</a>
+                                        <a class="" href="/">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -174,6 +174,7 @@ const Pricing = () => {
                 </section>
             </div>
         </div>
+        
     </>
   )
 }
