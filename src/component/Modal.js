@@ -104,7 +104,7 @@ const Modal = () => {
         <>
           <div className='container1 d-none d-md-block'>
             {Object.keys(formErrors).length === 0 && isSubmit ? (
-              <div className="ui message success">Message sent successfully !!</div>
+              <div className="ui message success" style = {{color:"#28a745"}}>Message sent successfully !!</div>
             ) : (
               <div className="ui message success"></div>
             )

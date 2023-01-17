@@ -1,13 +1,24 @@
 import React from 'react'
 import Header2 from './Header2'
 import Client from './Client'
+import{Link} from "react-router-dom";
 const About = () => {
   return (
    
     <>
       <Header2/>{/*header component call here*/ }
+      
         <section id="about" class="about mt-5 mb-5 pt-5 pt-md-none">
           <div class="container" data-aos="fade-up">
+          <div class = "banner-about" >
+            <div class="banner-child-about">
+            <img src = "assets/img/banner-photo.png" alt = "banner-photo.png" style={{ padding:"0px",marginRight: "5rem",width:"80px",height:"80px"}}/>
+            <span class = "banner-about-text">A CLOUD BASED GST <br/>Billing Software</span>
+            </div>
+          <Link to="/signup">
+                  <button type="button" class="btn btn-lg banner-btn" style={{right:"0px"}}>Create Your Free Acount <i class="bi bi-arrow-right-circle ms-3"></i></button>
+                </Link>
+          </div>
             <div class="section-title">
               <h2>About Us</h2>
             </div>

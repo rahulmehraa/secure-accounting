@@ -7,7 +7,6 @@ import Modal from "./component/Modal";
 import Routers from "./routers/Routers";
 import { useEffect, useState } from "react";
 import Loader from "./component/Loader/Loader";
-import Faq1 from "./component/Faq";
 import Whatsapp from './component/Whatsapp';
 
 const App = () => {

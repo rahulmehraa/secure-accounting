@@ -154,7 +154,14 @@ const Contact = () => {
                     </div>
                     <p style={{ color: "red" }}>{formErrors.your_message}</p>
                     <div class="text-center"><button type="submit">Send Message</button></div>
+                    {Object.keys(formErrors).length === 0 && isSubmit ? (
+              <div className="ui message success" style = {{color:"#28a745", textAlign:"center", paddingTop:"10px"}}>Thank you for messaging us !!</div>
+            ) : (
+              <div className="ui message success"></div>
+            )
+            }
                   </form>
+                  
                 </div>
                 
               </div>

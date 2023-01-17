@@ -2193,3 +2193,51 @@ h4 {
   padding-left: 100px;
   padding-right: 150px;
 }
+
+.banner-about{
+  opacity: 0.8;
+  margin-bottom: 30px !important;
+  padding:2.5rem;
+  box-sizing: border-box;
+  display: block;
+  box-sizing: border-box;
+  background-color: #00ba8b !important;
+  position: relative;
+  width: 100vw!important;
+    left: 50%!important;
+    transform: translateX(-50%)!important;
+
+}
+.banner-child-about{
+  position: absolute;
+    z-index: 0;
+    width: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.banner-about-text{
+  text-align: center !important;
+  padding-top: 0.4rem;
+  font-size: 22px;
+  text-decoration: none;
+  color: whitesmoke;
+  text-transform: capitalize !important;
+  font-weight: 900;
+}
+.banner-btn{
+ position: absolute;
+ margin-right: 10rem;
+ margin-top: -1.5rem;
+ background-color: deeppink !important;
+ color:white;
+ display: inline-block;
+ transition: 0.25s linear;
+}
+.banner-btn:hover{
+  background-color: black !important;
+  color: white;
+}

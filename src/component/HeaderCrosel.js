@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const HeaderCrosel = () => {
   return (
@@ -12,9 +12,9 @@ const HeaderCrosel = () => {
         
               <h1 className='text-primary'>Secure Accounting</h1>
                 <h2 className='text-dark mb-md-5'>A Cloud Based GST Billing, Accounting and Inventory Management Software</h2>
-                <NavLink to="/signup">
+                <Link to="/signup">
                   <button type="button" class="btn btn-lg mt-3 mt-md-none cr-btn" >Create Your Free Acount <i class="bi bi-arrow-right-circle ms-3"></i></button>
-                </NavLink>
+                </Link>
 
                 <div class="input-group d-none">
                   <div class="input-group-prepend">
